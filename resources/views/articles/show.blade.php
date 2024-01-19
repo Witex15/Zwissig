@@ -10,7 +10,7 @@
         @method('DELETE')
         <input type="submit" value="Supprimer l'article">
     </form>
-
+    <input type="button" href="{{ route('bids.create', $article) }}" value="Faire une enchère">
     <a href="{{ route('articles.edit', $article) }}">Modifier cet article</a>
 
     <h3>Commentaires</h3>
