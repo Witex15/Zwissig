@@ -14,6 +14,6 @@ use App\Http\Controllers\CommentController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/', [ArticleController::class,'topReads']);
 Route::resource('articles', ArticleController::class);
 Route::resource('articles.comments', CommentController::class)->only(['store']);

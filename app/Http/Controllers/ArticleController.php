@@ -19,6 +19,15 @@ class ArticleController extends Controller
 
         return view('articles.index', ['articles' => $articles->get()]);
     }
+    public function topReads()
+    {
+        $articles = request()->has('archived') ? Article::archived() : Article::unarchived();
+        if (request()->has('search'))
+            $articles = $articles->searchBody(request()->get('search'));
+        $articles->orderBy('reads', 'DESC');
+
+        return view('articles.topReads', ['articles' => $articles->get()]);
+    }
 
     /**
      * Show the form for creating a new resource.
