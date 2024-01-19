@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('amount');
             $table->string('email');
+            $table->foreignId('article_id');
             $table->timestamps();
         });
     }

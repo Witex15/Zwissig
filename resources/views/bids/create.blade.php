@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Nouvelle enchère</h1>
-    <form method="POST" action="{{ route('bids.store') }}">
+    <form method="POST" action="{{ route('bids.store', $article) }}">
         @csrf
         @include('bids.fields')
         <input type="submit" value="Ajouter">

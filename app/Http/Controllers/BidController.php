@@ -19,18 +19,18 @@ class BidController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Article $article)
     {
-        return view('bids.create', ['bid' => new Bid()]);
+        return view('bids.create', ['bid' => new Bid(), 'article' => $article]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Article $article,Request $request)
     {
-        Bid::create($request->all());
-        return redirect()->route('articles.index');
+        $article->bids()->create($request->all());
+        return redirect()->route('articles.show', $article);
     }
 
     /**
