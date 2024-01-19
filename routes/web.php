@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BidController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
@@ -16,4 +17,5 @@ use App\Http\Controllers\CommentController;
 */
 Route::get('/', [ArticleController::class,'topReads']);
 Route::resource('articles', ArticleController::class);
+Route::resource('bids', BidController::class);
 Route::resource('articles.comments', CommentController::class)->only(['store']);
